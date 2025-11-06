@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {7, 9, 12, 6, 8, 5, 4};
+    int n = sizeof(arr) / sizeof(arr[0]); // size of array
+    int target = 8;
+    int found = 0;  // flag variable
+
+    printf("Array elements: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+    // Linear search
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            printf("\nElement %d found at position %d (index %d)\n", target, i + 1, i);
+            found = 1;
+            break; // stop after finding the element
+        }
+    }
+
+    if (!found) {
+        printf("\nElement %d not found in the array.\n", target);
+    }
+
+    return 0;
+}
+
+
+
+output
+Array elements: 7 9 12 6 8 5 4 
+Element 8 found at position 5 (index 4)
