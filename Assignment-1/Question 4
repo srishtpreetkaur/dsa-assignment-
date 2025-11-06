@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int main() {
+    int n, k;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter %d elements: ", n);
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Enter number of positions to rotate (left): ");
+    scanf("%d", &k);
+
+    // Handle cases where k > n
+    k = k % n;
+
+    printf("Array before rotation: ");
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+    // Temporary array for rotated result
+    int temp[n];
+
+    // Copy elements after kth position
+    int index = 0;
+    for (int i = k; i < n; i++)
+        temp[index++] = arr[i];
+
+    // Copy first k elements at the end
+    for (int i = 0; i < k; i++)
+        temp[index++] = arr[i];
+
+    // Copy back to original array
+    for (int i = 0; i < n; i++)
+        arr[i] = temp[i];
+
+    printf("\nArray after %d left rotation(s): ", k);
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+    return 0;
+}
+
+##Output:
+[1, 2, 3, 4, 5]
+After 1 left rotation → [2, 3, 4, 5, 1]
